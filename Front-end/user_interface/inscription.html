@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscription Forum</title>
+  <link rel="stylesheet" href="/user-interface/style.css">
+</head>
+<body>
+  <section>
+    <h1>Inscription au Forum</h1>
+    <form id="register-form" enctype="multipart/form-data">
+      <input type="text" name="nom" placeholder="Nom" required>
+      <input type="text" name="prenom" placeholder="Prénom" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="numero" placeholder="Numéro de téléphone" required>
+      <label>Capture d'écran du paiement :</label>
+      <input type="file" name="capture" accept="image/*" required><br><br>
+      <button type="submit">S'inscrire</button>
+    </form>
+    <p id="feedback" style="margin-top: 10px;"></p>
+  </section>
+
+  <script src="/user-interface/script.js" defer></script>
+</body>
+</html>

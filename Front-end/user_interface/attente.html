@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Page d'attente - Accès</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <h1>Vérification d'accès</h1>
+    <p id="status">Chargement...</p>
+  </section>
+
+  <script>
+    async function verifierToken() {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get("token");
+
+      const statusEl = document.getElementById("status");
+
+      if (!token) {
+        statusEl.textContent = "Aucun token fourni dans l'URL.";
+        statusEl.style.color = "red";
+        return;
+      }
+
+      try {
+        const res = await fetch(`http://localhost:8000/user/access/${token}`);
+        const data = await res.json();
+
+        if (res.ok) {
+          statusEl.textContent = "✅ Accès autorisé. Bienvenue sur la page d’attente.";
+          statusEl.style.color = "green";
+        } else {
+          statusEl.textContent = data.detail || "Accès refusé.";
+          statusEl.style.color = "red";
+        }
+      } catch (e) {
+        statusEl.textContent = "Erreur lors de la vérification.";
+        statusEl.style.color = "red";
+      }
+    }
+
+    verifierToken();
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Super Admin - Forum</title>
+  <link rel="stylesheet" href="/admin-interface/style.css" />
+</head>
+
+<body>
+  <h1>Interface Super Admin</h1>
+
+  <!-- Gestion des admins -->
+  <section id="admin-management" style="display:none;">
+    <h2>Gérer les administrateurs</h2>
+    <div id="admin-list"></div>
+
+    <h3>Créer un nouvel admin</h3>
+    <input type="text" id="new-admin-username" placeholder="Nom d'utilisateur" />
+    <input type="password" id="new-admin-password" placeholder="Mot de passe" />
+    <button onclick="createAdmin()">Créer</button>
+    <p id="admin-feedback"></p>
+  </section>
+
+
+  <script src="/admin-interface/script.js" defer></script>
+</body>
+
+</html>
