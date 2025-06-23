@@ -10,20 +10,43 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const form = e.target;
-    const formData = new FormData(form);
+    const feedback = document.getElementById("feedback");
+    feedback.textContent = "";
+    feedback.style.color = "";
+
+    // Validation simple (à adapter selon ton formulaire)
+    const prenom = form.prenom.value.trim();
+    const nom = form.nom.value.trim();
+    const email = form.email.value.trim();
+    const numeroVal = form.numero.value.trim();
+
+    if (!prenom || !nom || !email || !numeroVal) {
+      feedback.style.color = "red";
+      feedback.textContent = "Tous les champs sont obligatoires.";
+      return;
+    }
+
+    // Optionnel : validation format email simple
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      feedback.style.color = "red";
+      feedback.textContent = "Email invalide.";
+      return;
+    }
 
     try {
+      // Construire un FormData propre (ou JSON si tu préfères)
+      const formData = new FormData(form);
+
       const response = await fetch("http://localhost:8000/user/register", {
         method: "POST",
         body: formData
       });
 
       const result = await response.json();
-      const feedback = document.getElementById("feedback");
 
       if (response.ok) {
         feedback.style.color = "green";
-        feedback.textContent = "Inscription réussie ! Vous recevrez un email après validation.";
+        feedback.textContent = "Inscription réussie ! Merci de patienter jusqu'à validation. Un email vous sera envoyé.";
         form.reset();
       } else {
         feedback.style.color = "red";
@@ -31,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (error) {
       console.error("Erreur lors de l'inscription :", error);
-      document.getElementById("feedback").textContent = "Erreur réseau ou serveur.";
-      document.getElementById("feedback").style.color = "red";
+      feedback.style.color = "red";
+      feedback.textContent = "Erreur réseau ou serveur.";
     }
   });
 });

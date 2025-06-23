@@ -3,3 +3,4 @@ env/
 pycache
 create_superadmin/
 back-end/create_superadmin
+back-end/static/

@@ -1,4 +1,25 @@
-/* Police globale */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+}
+
+input, button {
+  padding: 8px;
+  margin: 5px;
+}
+
+.user-card {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -7,75 +28,71 @@ body {
   color: #333;
 }
 
-/* Titres */
 h1, h2 {
   text-align: center;
   margin-top: 20px;
   color: #2c3e50;
 }
 
-/* Conteneur principal */
 section {
-  max-width: 500px;
-  margin: 30px auto;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-/* Champs uniformes */
 input[type="text"],
-input[type="email"],
-input[type="file"],
 input[type="password"] {
   width: 100%;
-  padding: 14px;
-  margin: 12px 0;
+  padding: 12px;
+  margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 16px;
-  font-family: inherit;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input:focus {
-  border-color: #3498db;
-  box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
-  outline: none;
-}
-
-/* Libellé clair */
-form label {
-  font-weight: 600;
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  color: #2c3e50;
-}
-
-/* Bouton modernisé */
 button {
-  width: 100%;
-  padding: 14px 0;
-  margin-top: 18px;
-  background: linear-gradient(to right, #2980b9, #3498db);
-  color: white;
+  padding: 10px 16px;
+  margin: 5px 5px 15px 0;
+  background-color: #3498db;
+  color: #fff;
   border: none;
-  border-radius: 50px; /* forme pilule */
-  font-size: 17px;
-  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(to right, #2471a3, #2e86c1);
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #2980b9;
 }
 
-button:active {
-  transform: scale(0.98);
+button:last-child {
+  background-color: #e74c3c;
+}
+
+button:last-child:hover {
+  background-color: #c0392b;
+}
+
+.user-card {
+  background-color: #fdfdfd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid #3498db;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.user-card p {
+  margin: 5px 0;
+}
+
+.user-card img {
+  margin: 10px 0;
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
 }

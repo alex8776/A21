@@ -127,8 +127,6 @@ def login_admin(
 
 
 
-
-
 @router.get("/pending")
 def get_pending_users(
     current_admin = Depends(get_current_admin_user),

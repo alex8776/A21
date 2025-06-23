@@ -23,7 +23,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # pour tout autoriser, sinon ["http://localhost:5500"] si tu utilises Live Server
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -39,8 +39,11 @@ app.mount("/user-interface", StaticFiles(directory="../Front-end/user_interface"
 def home_page():
     return FileResponse("../Front-end/index.html")
 
-
 # ✅ ROUTES spécifiques pour renvoyer les HTML
+@app.get("/super-admin-login")
+def get_super_admin_login() : 
+    return FileResponse("../Front-end/admin_interface/super-admin-login.html")
+
 @app.get("/super-admin")
 def get_super_admin():
     return FileResponse("../Front-end/admin_interface/super-admin.html")

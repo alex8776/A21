@@ -56,9 +56,18 @@ function parseJwt(token) {
 }
 
 function redirectBasedOnRole(payload) {
+  const feedback = document.getElementById("login-feedback");
+
   if (!payload) {
     localStorage.removeItem("admin_token");
+    feedback.textContent = "Jeton invalide.";
     return;
   }
-    window.location.href = "/admin-interface/admin-login.html";
+
+  if (payload.is_superadmin === true) {
+    window.location.href = "/admin-interface/super-admin.html";
+  } else {
+    localStorage.removeItem("admin_token");
+    feedback.textContent = "Accès refusé : vous n'êtes pas super admin.";
+  }
 }
